@@ -33,7 +33,7 @@ jobs:
       fail-fast: false
       matrix:
         base_image:
-        - bazzite-deck-nvidia-gnome
+        - bazzite-gnome-nvidia
 
     env:
       BASE_IMAGE: ${{ matrix.base_image }}
