@@ -47,13 +47,13 @@ rm -f /etc/sddm.conf.d/steamos.conf
 rm -f /etc/sddm.conf.d/virtualkbd.conf
 rm -f /etc/sddm.conf.d/zz-steamos-autologin.conf
 rm -f /usr/share/gamescope-session-plus/bootstrap_steam.tar.gz
-systemctl disable bazzite-autologin.service
-dnf5 remove -y steamos-manager
+systemctl disable bazzite-autologin.service || true
+dnf5 remove -y steamos-manager || true
 
 if [[ "$IMAGE_NAME" == *gnome* ]]; then
     # Remove SDDM and re-enable GDM on GNOME builds.
     dnf5 remove -y \
-        sddm
+        sddm || true
 
     systemctl enable gdm.service
 else
