@@ -33,10 +33,7 @@ jobs:
       fail-fast: false
       matrix:
         base_image:
-          - bazzite-deck
-          - bazzite-deck-gnome
-          - bazzite-deck-nvidia-gnome
-          - bazzite-deck-nvidia
+        - bazzite-deck-nvidia-gnome
 
     env:
       BASE_IMAGE: ${{ matrix.base_image }}
@@ -172,7 +169,7 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
           oci: false
           build-args: |
-            BASE_IMAGE=ghcr.io/${{ env.SOURCE_ORG }}/${{ matrix.base_image }}:${{ env.IMAGE_SOURCE_TAG || 'latest' }}
+            BASE_IMAGE=ghcr.io/ublue-os/bazzite-gnome-nvidia:stable
             IMAGE_NAME=${{ env.IMAGE_NAME }}
             IMAGE_VENDOR=${{ github.repository_owner }}
 
